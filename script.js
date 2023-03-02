@@ -1,9 +1,7 @@
 "use strict";
+
 const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-const lastFilm = prompt('Один из последних просмотренных фильмов', '');
-const lastFilmScore = prompt('На сколько оцените его?', '');
-const lastFilm2 = prompt('Один из последних просмотренных фильмов', '');
-const lastFilmScore2 = prompt('На сколько оцените его?', '');
+
 const personMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -11,9 +9,52 @@ const personMovieDB = {
     genres: {},
     privat: false
 };
+
+
+// for (let i = 0; i < 2; i++) {
+//   const lastFilm = prompt('Один из последних просмотренных фильмов', '');
+//   const lastFilmScore = prompt('На сколько оцените его?', '');
+
+//   if (lastFilm ==='' || lastFilmScore === '' || lastFilm === null || lastFilmScore === null || lastFilm.length > 50) {
+//     i--;
+//   } else {
+//     personMovieDB.movies[lastFilm] = lastFilmScore;
+//   }
+   
+// }
+
+let i = 0;
+while (i < 2) {
+  const lastFilm = prompt('Один из последних просмотренных фильмов', '');
+  const lastFilmScore = prompt('На сколько оцените его?', '');
+  i++;
+  if (lastFilm !='' && lastFilmScore !='' && lastFilm != null && lastFilmScore != null && lastFilm.length < 50) {
+    personMovieDB.movies[lastFilm] = lastFilmScore;
+  } else {
+    i--;
+  }
+}
+
+
+if (numberOfFilms < 10) {
+  alert('Просмотрено довольно мало фильмов');
+} else if (numberOfFilms >= 10 && numberOfFilms < 30) {
+  alert('Вы классический зритель');
+} else if (numberOfFilms > 30) {
+  alert('Вы киноман');
+} else {
+  alert('Произошла ошибка');
+}
+
+// const lastFilm = prompt('Один из последних просмотренных фильмов', '');
+// const lastFilmScore = prompt('На сколько оцените его?', '');
+// const lastFilm2 = prompt('Один из последних просмотренных фильмов', '');
+// const lastFilmScore2 = prompt('На сколько оцените его?', '');
+
 personMovieDB.movies[lastFilm] = lastFilmScore;
 personMovieDB.movies[lastFilm2] = lastFilmScore2;
 console.log(personMovieDB);
+
 
 
 /*------------------------------------------------------------------------*/
@@ -186,3 +227,49 @@ function pyramidBuild() {
     }
     return result;
 }
+
+
+
+/*------------------------------------------------------------------------*/
+//Фуекция, которая на вход принимает 1 аргумент с именем человека и возвращает строку.
+
+function sayHello(name) {
+  return ('Привет, ' + name + '!')
+ }
+
+
+
+ /*------------------------------------------------------------------------*/
+ // Функция, которая возвращает массив из трех чисел: одно на 1 меньше, сам аргумент, и число на 1 больше
+ function returnNeighboringNumbers(num) {
+     let arr = [num-1, num, num+1];
+     return arr;
+ }
+
+
+
+/*------------------------------------------------------------------------*/
+// Функция, которая принимает в себя 2 аргумента, оба числа. 
+// Первое число - это база, второе число - это сколько раз нужно будет повторить это число в прогрессии 
+// Функция должна возвращать строку (или первый аргумент), где эти числа идут по порядку, разделенные тремя дефисами "---"
+// Если второй аргумент не является числом, равен или меньше нуля - то возвращать просто первый аргумент
+
+function getMathResult(num, numOfRepeat) {
+  if (numOfRepeat <= 0 || typeof numOfRepeat != "number") {
+    return num;
+  }
+  let container = "";
+  let number = 0; 
+  for (let i = 1; i <= numOfRepeat; i++) {
+     
+    container += number + num;
+      number = number + num;
+    if (i != numOfRepeat){
+      container+= '---';
+    }
+  
+} 
+return container;
+}
+
+console.log(getMathResult(5, 3));
