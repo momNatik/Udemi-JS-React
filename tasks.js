@@ -1,14 +1,13 @@
 /*------------------------------------------------------------------------*/
 
-
-console.log( NaN || 2 || undefined );
-console.log( NaN && 2 && undefined );
-console.log( 1 && 2 && 3 );
-console.log( !1 && 2 || !3 );
-console.log( 25 || null && !3 );
-console.log( NaN || null || !3 || undefined || 5);
-console.log( NaN || null && !3 && undefined || 5);
-console.log( 5 === 5 && 3 > 1 || 5);
+console.log(NaN || 2 || undefined);
+console.log(NaN && 2 && undefined);
+console.log(1 && 2 && 3);
+console.log((!1 && 2) || !3);
+console.log(25 || (null && !3));
+console.log(NaN || null || !3 || undefined || 5);
+console.log(NaN || (null && !3 && undefined) || 5);
+console.log((5 === 5 && 3 > 1) || 5);
 
 
 
@@ -48,6 +47,8 @@ function thirdTask() {
   }
 }
 
+
+
 /*------------------------------------------------------------------------*/
 // Функция, которая выводит нечетные числа от 2 до 16 (нужно переписать цикл на while)
 
@@ -60,7 +61,6 @@ function thirdTask() {
 //         console.log(i);
 //     }
 // }
-
 
 function fourthTask() {
   let i = 1;
@@ -93,61 +93,57 @@ function fifthTask() {
 }
 
 
+
 /*------------------------------------------------------------------------*/
 //  Функция, которая заполняет новый массив числами из старого
 
-     function firstTask() {
+function firstTask() {
+  const arr = [3, 5, 8, 16, 20, 23, 50];
+  const result = [];
 
-        const arr = [3, 5, 8, 16, 20, 23, 50];
-        const result = [];
-    
-        for (let i = 0; i < arr.length; i++) {
-            result[i] = arr[i];
-        }
-        
-        return result;
-    }
-    
+  for (let i = 0; i < arr.length; i++) {
+    result[i] = arr[i];
+  }
+
+  return result;
+}
+
 
 
 /*------------------------------------------------------------------------*/
 //Функция, которая все числа увеличивает в 2 раза, а если попадается строка - то к ней добавляется " - done"
 
-    function secondTask() {
-    
-         const data = [5, 10, 'Shopping', 20, 'Homework'];
-    
-            for ( let i = 0; i<data.length; i++) {
-                if (typeof data[i] === 'number') {
-                    data[i] += data[i];
-                } else 
-                if (typeof data[i] === 'string') {
-                    data[i] += ' - done';
-                }
-            }
-            
-        return data;
+function secondTask() {
+  const data = [5, 10, "Shopping", 20, "Homework"];
+
+  for (let i = 0; i < data.length; i++) {
+    if (typeof data[i] === "number") {
+      data[i] += data[i];
+    } else if (typeof data[i] === "string") {
+      data[i] += " - done";
     }
-    
+  }
+
+  return data;
+}
+
 
 
 /*------------------------------------------------------------------------*/
 //Функция, которая разворачивает массив наоборот и записывает данные в новый массив
 
-    function thirdTask() {
-        const data = [5, 10, 'Shopping', 20, 'Homework'];
-        const result = [];
-        let counter = data.length-1;
-    
-       
-        for (let i = 0; i <data.length; i++) {
-                result[i] = data[counter];
-                counter--;
-        
-        } 
-        
-        return result;
-    }
+function thirdTask() {
+  const data = [5, 10, "Shopping", 20, "Homework"];
+  const result = [];
+  let counter = data.length - 1;
+
+  for (let i = 0; i < data.length; i++) {
+    result[i] = data[counter];
+    counter--;
+  }
+
+  return result;
+}
 
 
 
@@ -155,18 +151,18 @@ function fifthTask() {
 // Функция, которая рисует пирамидку по центру (равнобедренный треугольник)
 
 function pyramidBuild() {
-    const lines = 6;
-    let result = "";
-    for (let i = 0; i < lines; i++) {
-      for (let j = 1; j < lines-i; j++) {
-        result += " ";
-      }
-      for (let k = lines-2 * i; k <= lines; k++) {
-          result += "*";
-      }
-      result += "\n";
+  const lines = 6;
+  let result = "";
+  for (let i = 0; i < lines; i++) {
+    for (let j = 1; j < lines - i; j++) {
+      result += " ";
     }
-    return result;
+    for (let k = lines - 2 * i; k <= lines; k++) {
+      result += "*";
+    }
+    result += "\n";
+  }
+  return result;
 }
 
 
@@ -175,23 +171,24 @@ function pyramidBuild() {
 //Фуекция, которая на вход принимает 1 аргумент с именем человека и возвращает строку.
 
 function sayHello(name) {
-  return ('Привет, ' + name + '!')
- }
-
-
-
- /*------------------------------------------------------------------------*/
- // Функция, которая возвращает массив из трех чисел: одно на 1 меньше, сам аргумент, и число на 1 больше
- function returnNeighboringNumbers(num) {
-     let arr = [num-1, num, num+1];
-     return arr;
- }
+  return "Привет, " + name + "!";
+}
 
 
 
 /*------------------------------------------------------------------------*/
-// Функция, которая принимает в себя 2 аргумента, оба числа. 
-// Первое число - это база, второе число - это сколько раз нужно будет повторить это число в прогрессии 
+// Функция, которая возвращает массив из трех чисел: одно на 1 меньше, сам аргумент, и число на 1 больше
+
+function returnNeighboringNumbers(num) {
+  let arr = [num - 1, num, num + 1];
+  return arr;
+}
+
+
+
+/*------------------------------------------------------------------------*/
+// Функция, которая принимает в себя 2 аргумента, оба числа.
+// Первое число - это база, второе число - это сколько раз нужно будет повторить это число в прогрессии
 // Функция должна возвращать строку (или первый аргумент), где эти числа идут по порядку, разделенные тремя дефисами "---"
 // Если второй аргумент не является числом, равен или меньше нуля - то возвращать просто первый аргумент
 
@@ -200,21 +197,151 @@ function getMathResult(num, numOfRepeat) {
     return num;
   }
   let container = "";
-  let number = 0; 
+  let number = 0;
   for (let i = 1; i <= numOfRepeat; i++) {
-     
     container += number + num;
-      number = number + num;
-    if (i != numOfRepeat){
-      container+= '---';
+    number = number + num;
+    if (i != numOfRepeat) {
+      container += "---";
     }
-  
-} 
-return container;
+  }
+  return container;
 }
 
 console.log(getMathResult(5, 3));
 
 
 
+/*------------------------------------------------------------------------*/
+// Функция, которая вычисляет обьем и площадь поверхности куба по длине ребра
 
+function calculateVolumeAndArea(length) {
+  if (typeof length == "number" &&
+    Number.isInteger(length) &&
+    Math.sign(length) == 1) {
+
+    let volume = length * length * length;
+    let area = length * length * 6;
+    return `Объем куба: ${volume}, площадь всей поверхности: ${area}`;
+
+  } else {
+    return "При вычислении произошла ошибка";
+  }
+}
+
+console.log(calculateVolumeAndArea(-5.5));
+
+
+
+/*------------------------------------------------------------------------*/
+// Функция, которая по переданному ей номеру места вычисляет номер купе в вагоне
+
+function getCoupeNumber(num) {
+  if (
+    typeof num != "number" ||
+    !Number.isInteger(num) ||
+    Math.sign(num) == -1
+  ) {
+    return "Ошибка. Проверьте правильность введенного номера места";
+  } else if (num === 0 || num > 36) {
+    return "Таких мест в вагоне не существует";
+  }
+
+  for (let i = 1; i <= 9; i++) {
+    if (num / 4 <= i) {
+      return i;
+    }
+  }
+}
+
+console.log(getCoupeNumber(0));
+
+
+
+/*------------------------------------------------------------------------*/
+// Функция которая переводит время из минут в часы и минуты
+
+function getTimeFromMinutes(time) {
+  if (
+    typeof time != "number" ||
+    !Number.isInteger(time) ||
+    Math.sign(time) == -1
+  ) {
+    return "Ошибка, проверьте данные";
+  }
+  let hour = Math.floor(time / 60);
+  let min = time % 60;
+  if (hour == 1) {
+    return `Это ${hour} час и ${min} минут`;
+  } else if (hour >= 2 && hour <= 4) {
+    return `Это ${hour} часа и ${min} минут`;
+  } else {
+    return `Это ${hour} часов и ${min} минут`;
+  }
+}
+
+console.log(getTimeFromMinutes(170));
+
+
+/*------------------------------------------------------------------------*/
+// Функция, которая ищет максимальное значение среди переданных
+
+function findMaxNumber(a, b, c, d) {
+  if (typeof (a && b && c && d) == "number") {
+    return Math.max(a, b, c, d);
+  } else {
+    return 0;
+  }
+}
+
+console.log(findMaxNumber(1, 6, -77, "9"));
+
+
+
+/*------------------------------------------------------------------------*/
+// Функция которая выводит заданное кол-во чисел Фибоначи
+
+function fib(num) {
+  if (typeof num != 'number') {
+    return '';
+  }
+  let result = '';
+  let a = 0;
+  let b = 1;
+  for (let i = 0; i < num; i++) {
+      if (i === num-1) {
+        result+= (`${a}`);
+      } else {
+        result+= (`${a} `);
+      }
+      let c = a + b;
+      a = b;
+      b = c;
+  }
+  return result;
+}
+
+console.log(fib(6));
+
+
+
+/*------------------------------------------------------------------------*/
+// Callback функция
+function learnCallback(learn, callback) {
+    console.log(`Я учу ${learn}`);
+    callback();
+} 
+
+
+// первый вариант с анонимной функцией
+learnCallback('JS', function() {
+    console.log('Я прошел этот урок!');
+});
+
+
+// второй вариант со сторонней функцией 
+function done() {
+    console.log('Я прошел этот урок!');
+}
+
+learnCallback('JS', done);

@@ -2,7 +2,7 @@
 
 let numberOfFilms;
 function start() {
-  numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+  numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '').trim();
 
   while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
     numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
@@ -30,8 +30,8 @@ function showMyDb() {
 
 function rememberMyFilms() {
   for (let i = 0; i < 2; i++) {
-  const lastFilm = prompt('Один из последних просмотренных фильмов', '');
-  const lastFilmScore = prompt('На сколько оцените его?', '');
+  const lastFilm = prompt('Один из последних просмотренных фильмов', '').trim();
+  const lastFilmScore = prompt('На сколько оцените его?', '').trim();
 
   if (lastFilm ==='' || lastFilmScore === '' || lastFilm === null || lastFilmScore === null || lastFilm.length > 50) {
     i--;
