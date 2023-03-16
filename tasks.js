@@ -345,3 +345,50 @@ function done() {
 }
 
 learnCallback('JS', done);
+
+
+var greet = function() {
+let a = 'nAtA'[0].toUpperCase() + 'nata'.slice(1).toLowerCase();
+  return a;
+};
+
+console.log(greet());
+
+function solve(s){
+  let up = 0;
+  let low = 0;
+ for (let i = 0; i < s.length; i++) {
+   if (s[i] == s[i].toUpperCase()) {
+     up++;
+   } else {
+     low++;
+   }
+ }
+  if (low >= up) {
+    s = s.toLowerCase();
+  } else {
+    s = s.toUpperCase();
+  }
+  return s;
+}
+
+console.log(solve('Case'));
+
+
+
+function decipherThis(str) {
+  let array = str.split(' ');
+  let result = '';
+  for (let i = 0; i < array.length; i++) {
+    let uniCode = parseInt(array[i], 10);
+    let letter = String.fromCodePoint(uniCode);
+    let a = ('' + uniCode).length;
+    let word = letter + array[i].slice(a-1);
+    let resultWord = word[word.length-1] + word.slice(1, word.length-2) + word[0];
+    result += resultWord + ' ';
+    return letter;
+  }
+  return array;
+} 
+
+console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o'));
