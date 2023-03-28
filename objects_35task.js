@@ -63,3 +63,24 @@ function showProgrammingLangs(plan) {
 
 console.log(showExperience(personalPlanPeter));
 console.log(showProgrammingLangs(personalPlanPeter));
+
+// ООП - обьектно ориентированное программирование
+const soldier = {
+  health: 500,
+  armor: 100,
+  sayHello: function() {
+    console.log('Hello');
+  } 
+};
+
+const jonh = {
+  health: 100,
+}
+
+Object.setPrototypeOf(jonh, soldier);
+// установили прототип от уже созданного джона к солдату, теперь он наследует все его свойства
+
+
+const andry = Object.create(soldier);
+// установили прототип на этапе создания
+
