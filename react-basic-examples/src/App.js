@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import { Component } from 'react';
 import './App.css';
 
 
@@ -10,14 +10,23 @@ class WnoAmI extends Component {
     }
   }
 
-nextYear = () => {
-  this.setState({
-    years: this.state.years + 1
-  })
-}
+  // nextYear = () => {
+  //   this.setState({
+  //     years: this.state.years + 1
+  //   })
+  // }
+  // setState() - асинхронная операция. Последовательность может быть нарушена из-за процессов оптимизации реакт. И текущее состояние не успеет принять новое значение (обновиться) из-за выполнения других процессов.
+
+  // Если принципиальна точность и последовательность данных (например счетчик), следует передавать callback функцию
+
+  nextYear = () => {
+    this.setState(state => ({
+      years: state.years + 1
+    }))
+  }
 
   render() {
-    const {name, surname, link} =this.props;
+    const { name, surname, link } = this.props;
     return (
       <div>
         <button onClick={this.nextYear}>+++</button>
@@ -29,11 +38,12 @@ nextYear = () => {
 }
 
 
+
 function App() {
   return (
     <div className="App">
-     <WnoAmI name='Jonh' surname='Smith' link='facebook.com' />
-     <WnoAmI name='Alex' surname='Shepard' link='vk.com' />
+      <WnoAmI name='Jonh' surname='Smith' link='facebook.com' />
+      <WnoAmI name='Alex' surname='Shepard' link='vk.com' />
     </div>
   );
 }
