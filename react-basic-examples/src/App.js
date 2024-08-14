@@ -3,10 +3,6 @@ import ClassChangeState from './components/class-change-state/class-change-state
 import './App.css';
 
 
-
-
-
-
 function App() {
   return (
     <div className="App">
@@ -14,8 +10,8 @@ function App() {
       <ClassChangeState name='Alex' surname='Shepard' link='vk.com' />
 
       <div className="counter-container">
-                <Counter counter={0} />
-            </div>
+        <Counter initialValue={0} maxValueOfCounter={50} minValueOfCounter={-50}/>
+      </div>
     </div>
   );
 }
