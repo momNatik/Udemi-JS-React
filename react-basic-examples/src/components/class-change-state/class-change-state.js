@@ -1,6 +1,7 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 
 // Fragment - реакт фрагмент, позволяющий не использовать обертку div для компонентов (в верстке не виден)
+// так же можно использовать пустой тег <> </> - это будет восприниматься реактом как Fragment
 
 class ClassChangeState extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class ClassChangeState extends Component {
     const { name, surname, link } = this.props;
     const { years, jobTitle } = this.state;
     return (
-      <Fragment>
+      <>
         <button onClick={this.nextYear}>+++</button>
         <h1>My name is {name},
           surname - {surname},
@@ -50,7 +51,7 @@ class ClassChangeState extends Component {
           <input type="text" onChange={(e) => this.commitInputChanges(e, 'Click')} />
           {/*Прокидываем данные вместе с вызовом обработчика событий */}
         </form>
-      </Fragment>
+      </>
     )
   }
 }
