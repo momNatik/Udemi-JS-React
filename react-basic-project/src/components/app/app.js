@@ -66,7 +66,9 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <AppInfo />
+                <AppInfo 
+                maxId={this.maxId}
+                data={this.state.data}/>
                 <div className="search-panel">
                     <SearchPanel />
                     <AppFilter />
