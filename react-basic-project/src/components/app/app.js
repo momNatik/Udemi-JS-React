@@ -76,6 +76,14 @@ class App extends Component {
         this.setState({term});
     }
 
+    filterRise = () => {
+
+    }
+
+    filterSalary = () => {
+
+    }
+
     render() {
         const {data, term} = this.state;
         const employeersCount = this.state.data.length;
@@ -89,7 +97,9 @@ class App extends Component {
                 <div className="search-panel">
                     <SearchPanel 
                     onUpdateSearch={this.onUpdateSearch}/>
-                    <AppFilter />
+                    <AppFilter 
+                    filterRise={this.filterRise}
+                    filterSalary={this.filterSalary}/>
                 </div>
 
                 <EmployeersList
