@@ -33,13 +33,13 @@ class App extends Component {
 
     addItem = (name, salary) => {
         const newItem = {
-            name, 
+            name,
             salary,
             increase: false,
             rise: false,
             id: this.maxId++
         }
-        this.setState(({data}) => {
+        this.setState(({ data }) => {
             const newArr = [...data, newItem];
             return {
                 data: newArr
@@ -48,10 +48,10 @@ class App extends Component {
     }
 
     onToggleIncrease = (id) => {
-        this.setState(({data}) => ({
+        this.setState(({ data }) => ({
             data: data.map(item => {
                 if (item.id === id) {
-                    return {...item, increase: !item.increase}
+                    return { ...item, increase: !item.increase }
                 }
                 return item;
             })
@@ -64,11 +64,13 @@ class App extends Component {
     }
 
     render() {
+        const employeersCount = this.state.data.length;
+        const increasedCount = this.state.data.filter((item) => item.increase === true).length;
         return (
             <div className="app">
-                <AppInfo 
-                maxId={this.maxId}
-                data={this.state.data}/>
+                <AppInfo
+                    employeersCount={employeersCount}
+                    increasedCount={increasedCount} />
                 <div className="search-panel">
                     <SearchPanel />
                     <AppFilter />
